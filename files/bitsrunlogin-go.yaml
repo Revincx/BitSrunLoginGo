@@ -23,6 +23,7 @@ settings:
     log:
         debug_level: false
         write_file: false
+        slient_mode: false
         log_path: ./
         log_name: ""
 
