@@ -42,16 +42,16 @@ define BitSrunLoginGo/templates
   endef
 
   define Package/$(1)/install
-	$(call GoPackage/Package/Install/Bin,$(PKG_INSTALL_DIR))
-	$(INSTALL_DIR) $(1)/usr/bin/
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/BitSrunLoginGo $(1)/usr/bin/bitsrunlogin-go
+    $(call GoPackage/Package/Install/Bin,$(PKG_INSTALL_DIR))
+    $(INSTALL_DIR) $(1)/usr/bin/
+    $(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/BitSrunLoginGo $(1)/usr/bin/bitsrunlogin-go
 
-	$(INSTALL_DIR) $(1)/etc/config $(1)/etc/init.d
-  $(INSTALL_CONF) $(CURDIR)/files/bitsrunlogin-go.yaml $(1)/etc/bitsrunlogin-go/config.yaml
-	$(INSTALL_BIN) $(CURDIR)/files/bitsrunlogin-go.init $(1)/etc/init.d/bitsrunlogin-go
+    $(INSTALL_DIR) $(1)/etc/config $(1)/etc/init.d
+    $(INSTALL_CONF) $(CURDIR)/files/bitsrunlogin-go.yaml $(1)/etc/bitsrunlogin-go/config.yaml
+    $(INSTALL_BIN) $(CURDIR)/files/bitsrunlogin-go.init $(1)/etc/init.d/bitsrunlogin-go
   endef
 endef
 
- $(eval $(call BitSrunLoginGo/templates,BitSrunLoginGo)) \
- $(eval $(call GoBinPackage,BitSrunLoginGo)) \
- $(eval $(call BuildPackage,BitSrunLoginGo)) \
+$(eval $(call BitSrunLoginGo/templates,BitSrunLoginGo)) \
+$(eval $(call GoBinPackage,BitSrunLoginGo)) \
+$(eval $(call BuildPackage,BitSrunLoginGo)) \
