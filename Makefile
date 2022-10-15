@@ -4,10 +4,14 @@
 
 include $(TOPDIR)/rules.mk
 
+PKG_NAME:=luci-app-bitsrunlogin-go
+PKG_VERSION:=1.0
+
 LUCI_TITLE:=LuCI app for BitSrunLoginGo (Bit Srun auto login tool)
+LUCI_PKGARCH:=all
 LUCI_DEPENDS:=+bitsrunlogin-go
 LUCI_PKGARCH:=all
 
-include ../../luci.mk
+include $(TOPDIR)/feeds/luci/luci.mk
 
 # call BuildPackage - OpenWrt buildroot signature
