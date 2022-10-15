@@ -83,7 +83,6 @@ return view.extend({
 		o.value('cmcc', _('China Mobile (cmcc)'));
 		o.value('ctcc', _('China Telecom (ctcc)'));
 		o.value('cucc', _('China Unicom (cucc)'));
-		o.rmempty = false;
 
 		o = s.option(form.Value, 'username', _('Username'));
 		o.rmempty = false;
