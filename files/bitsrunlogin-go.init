@@ -12,12 +12,12 @@ START=99
 STOP=15
 
 SERVICE_DAEMONIZE=1
-NAME=BitSrunLogin
+NAME=bitsrunlogin-go
 
 start(){
-    /usr/bin/BitSrunLoginGo --config=/etc/bitsrunlogin-go/config.yaml --daemon
+    /usr/bin/bitsrunlogin-go --config=/etc/bitsrunlogin-go/config.yaml --daemon
 }
 
 stop() {
-    killall -q BitSrunLoginGo
+    killall -q bitsrunlogin-go
 }

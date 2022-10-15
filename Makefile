@@ -28,30 +28,26 @@ GO_PKG_ASMFLAGS:=-trimpath=$GOPATH
 include $(INCLUDE_DIR)/package.mk
 include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
 
-define BitSrunLoginGo/templates
-  define Package/$(1)
-    TITLE:=An auto login tool
-    URL:=https://github.com/Mmx233/BitSrunLoginGo
-    SECTION:=utils
-    CATEGORY:=Utilities
-    DEPENDS:=$$(GO_ARCH_DEPENDS)
-  endef
-
-  define Package/$(1)/description
-  There is no description.
-  endef
-
-  define Package/$(1)/install
-    $(call GoPackage/Package/Install/Bin,$(PKG_INSTALL_DIR))
-    $(INSTALL_DIR) $(1)/usr/bin/
-    $(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/BitSrunLoginGo $(1)/usr/bin/bitsrunlogin-go
-
-    $(INSTALL_DIR) $(1)/etc/config $(1)/etc/init.d
-    $(INSTALL_CONF) $(CURDIR)/files/bitsrunlogin-go.yaml $(1)/etc/bitsrunlogin-go/config.yaml
-    $(INSTALL_BIN) $(CURDIR)/files/bitsrunlogin-go.init $(1)/etc/init.d/bitsrunlogin-go
-  endef
+define Package/bitsrunlogin-go
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=Campus Network
+  TITLE:=Bit Srun auto login tool
+  URL:=https://github.com/Mmx233/BitSrunLoginGo
+  DEPENDS:=$(GO_ARCH_DEPENDS) +ca-bundle
 endef
 
-$(eval $(call BitSrunLoginGo/templates,BitSrunLoginGo)) \
-$(eval $(call GoBinPackage,BitSrunLoginGo)) \
-$(eval $(call BuildPackage,BitSrunLoginGo)) \
+define Package/bitsrunlogin-go/install
+	$(call GoPackage/Package/Install/Bin,$(PKG_INSTALL_DIR))
+
+	$(INSTALL_DIR) $(1)/usr/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/BitSrunLoginGo $(1)/usr/bin/bitsrunlogin-go
+
+	$(INSTALL_DIR) $(1)/etc/config $(1)/etc/init.d
+	mkdir $(1)/etc/bitsrunlogin-go/
+	$(INSTALL_CONF) $(CURDIR)/files/bitsrunlogin-go.yaml $(1)/etc/bitsrunlogin-go/config.yaml
+	$(INSTALL_BIN) $(CURDIR)/files/bitsrunlogin-go.init $(1)/etc/init.d/bitsrunlogin-go
+endef
+
+$(eval $(call GoBinPackage,bitsrunlogin-go))
+$(eval $(call BuildPackage,bitsrunlogin-go))

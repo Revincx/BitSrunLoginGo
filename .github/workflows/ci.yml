@@ -62,7 +62,7 @@ jobs:
         uses: actions/upload-artifact@v3.1.0
         with: 
           name: BitSrunLoginGo-ipk
-          path: openwrt-sdk-21.02.0-rc1-x86-64_gcc-8.4.0_musl.Linux-x86_64/bin/packages/x86_64/base/BitSrunLoginGo*
+          path: openwrt-sdk-21.02.0-rc1-x86-64_gcc-8.4.0_musl.Linux-x86_64/bin/packages/x86_64/base/bitsrunlogin-go*
 
 #       - name: Release Package
 #         uses: "marvinpinto/action-automatic-releases@latest"
