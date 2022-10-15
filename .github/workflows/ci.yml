@@ -2,6 +2,9 @@ name: OpenWrt Package CI
 
 on:
   push:
+      branches:
+      - main
+      - openwrt-build
   workflow_dispatch:
 
 jobs:
