@@ -44,8 +44,7 @@ define Package/bitsrunlogin-go/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/BitSrunLoginGo $(1)/usr/bin/bitsrunlogin-go
 
 	$(INSTALL_DIR) $(1)/etc/config $(1)/etc/init.d
-	mkdir $(1)/etc/bitsrunlogin-go/
-	$(INSTALL_CONF) $(CURDIR)/files/bitsrunlogin-go.yaml $(1)/etc/bitsrunlogin-go/config.yaml
+	$(INSTALL_CONF) $(CURDIR)/files/bitsrunlogin-go.config $(1)/etc/config/bitsrunlogin-go
 	$(INSTALL_BIN) $(CURDIR)/files/bitsrunlogin-go.init $(1)/etc/init.d/bitsrunlogin-go
 endef
 
