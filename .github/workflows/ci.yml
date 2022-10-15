@@ -2,9 +2,6 @@ name: OpenWrt Package CI
 
 on:
   push:
-      branches:
-      - main
-      - openwrt-build
   workflow_dispatch:
 
 jobs:
@@ -13,13 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-      - name: Get current time
-        uses: 1466587594/get-current-time@v2
-        id: current-time
-        with:
-          format: YYYYMMDDTHHmmss
-          utcOffset: "+08:00"
 
       - name: Setup Environment
         run: |
@@ -55,23 +45,23 @@ jobs:
           path: openwrt-sdk-21.02.1-x86-64_gcc-8.4.0_musl.Linux-x86_64/package/bitsrunlogin-go/src
           ref: main
 
+      - name: Checkout LuCI Code
+        uses: actions/checkout@v2
+        with:
+          path: openwrt-sdk-21.02.1-x86-64_gcc-8.4.0_musl.Linux-x86_64/package/luci-app-bitsrunlogin-go
+          ref: luci
+
       - name: Compile Package
         working-directory: ./openwrt-sdk-21.02.1-x86-64_gcc-8.4.0_musl.Linux-x86_64
         run: |
           make defconfig
-          make package/bitsrunlogin-go/compile -j2 V=s
+          make package/luci-app-bitsrunlogin-go/compile -j2 V=s
 
       - name: Upload All Packages
         uses: actions/upload-artifact@v3.1.0
         with: 
           name: packages
           path: openwrt-sdk-21.02.1-x86-64_gcc-8.4.0_musl.Linux-x86_64/bin/packages/x86_64/*
-          
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v3.1.0
-        with: 
-          name: bitsrunlogin-go-ipk
-          path: openwrt-sdk-21.02.1-x86-64_gcc-8.4.0_musl.Linux-x86_64/bin/packages/x86_64/base/bitsrunlogin-go*
 
 #       - name: Release Package
 #         uses: "marvinpinto/action-automatic-releases@latest"
