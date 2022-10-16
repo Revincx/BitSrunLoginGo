@@ -94,11 +94,14 @@ jobs:
           name: ${{ matrix.target }}-packages
           path: ${{ env.SDK_NAME }}/bin/packages/*/base/*bitsrunlogin*.ipk
 
-#       - name: Release Package
-#         uses: "marvinpinto/action-automatic-releases@latest"
-#         with:
-#           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-#           automatic_release_tag: "${{ steps.current-time.outputs.formattedTime }}"
-#           prerelease: true
-#           files: |
-#             openwrt-sdk-21.02.0-rc1-ramips-mt7620_gcc-8.4.0_musl.Linux-x86_64/bin/packages/mipsel_24kc/base/BitSrunLoginGo*
+      - name: Upload to Release
+        if: github.event.release.tag_name != ''
+        uses: svenstaro/upload-release-action@v2
+        with: 
+          repo_token: ${{ env.GITHUB_TOKEN }}
+          file: ${{ env.SDK_NAME }}/bin/packages/*/base/*bitsrunlogin*.ipk
+          overwrite: true
+          tag: ${{ github.ref }}
+          file_glob: true
+          prerelease: true
+          
