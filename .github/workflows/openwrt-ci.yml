@@ -3,6 +3,14 @@ name: OpenWrt Package CI
 on:
   push:
   workflow_dispatch:
+    inputs: 
+      release: 
+        description: 'Create Release'
+        required: false
+        default: 'false'
+      tag: 
+        description: 'Release Tag'
+        required: false
 
 env: 
   SDK_VERSION: 21.02.1
@@ -55,7 +63,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-${{ matrix.target }}-openwrt
 
-      - name: Setup OpenWRT SDK
+      - name: Setup OpenWrt SDK
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
           wget https://archive.openwrt.org/releases/${{ env.SDK_VERSION }}/targets/${{ env.TARGET_PATH }}/${{ env.SDK_NAME }}.tar.xz
@@ -94,14 +102,13 @@ jobs:
           name: ${{ matrix.target }}-packages
           path: ${{ env.SDK_NAME }}/bin/packages/*/base/*bitsrunlogin*.ipk
 
-      - name: Upload to Release
-        if: github.event.release.tag_name != ''
+      - name: Upload To Release
+        if: github.event.inputs.release == 'true' && github.event.inputs.tag != ''
         uses: svenstaro/upload-release-action@v2
         with: 
-          repo_token: ${{ env.GITHUB_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ env.SDK_NAME }}/bin/packages/*/base/*bitsrunlogin*.ipk
           overwrite: true
-          tag: ${{ github.ref }}
+          tag: ${{ github.event.inputs.tag }}
           file_glob: true
           prerelease: true
-          
