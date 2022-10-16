@@ -23,13 +23,11 @@ jobs:
       matrix:
         target: 
           - x86-64
-          - ramips-mt7620
           - ramips-mt7621
           - rockchip-armv8
           - sunxi-cortexa53
           - sunxi-cortexa7
           - sunxi-cortexa8
-          - mediatek-mt7622
           - ipq806x-generic
           - bcm53xx-generic
 
