@@ -4,12 +4,26 @@ on:
   push:
   workflow_dispatch:
 
+env: 
+  SDK_VERSION: 21.02.1
+  SDK_GCC_VERSION: 8.4.0
+
 jobs:
   build:
 
     strategy: 
       matrix:
-        target: [x86-64, ramips-mt7620, ramips-mt7621, rockchip-armv8, sunxi-cortexa53, sunxi-cortexa7, sunxi-cortexa8, mediatek-mt7622, ipq807x-generic, bcm53xx-generic]
+        target: 
+          - x86-64
+          - ramips-mt7620
+          - ramips-mt7621
+          - rockchip-armv8
+          - sunxi-cortexa53
+          - sunxi-cortexa7
+          - sunxi-cortexa8
+          - mediatek-mt7622
+          - ipq806x-generic
+          - bcm53xx-generic
 
     name: Build ${{ matrix.target }}
 
@@ -24,14 +38,19 @@ jobs:
 
       - name: Set Target Varibles
         run: |
-          echo "TARGET=$(echo ${{ matrix.target }})" >> $GITHUB_ENV
+          export TARGET=${{ matrix.target }}
+          if [[ $TARGET =~ 'cortexa7' || $TARGET =~ 'cortexa8' || $TARGET =~ 'ipq806x' || $TARGET =~ 'bcm53xx' ]]; then
+            echo "SDK_NAME=$(echo openwrt-sdk-${{ env.SDK_VERSION }}-${{ matrix.target }}_gcc-${{ env.SDK_GCC_VERSION }}_musl_eabi.Linux-x86_64)" >> $GITHUB_ENV
+          else 
+            echo "SDK_NAME=$(echo openwrt-sdk-${{ env.SDK_VERSION }}-${{ matrix.target }}_gcc-${{ env.SDK_GCC_VERSION }}_musl.Linux-x86_64)" >> $GITHUB_ENV
+          fi
           echo "TARGET_PATH=$(echo ${{ matrix.target }} | sed 's/-/\//g')" >> $GITHUB_ENV
           echo "TARGET_NAME=$(echo ${{ matrix.target }} | sed 's/-/_/g')" >> $GITHUB_ENV
       
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         id: cache
         with:
-          path: openwrt-sdk-21.02.1-${{ matrix.target }}_gcc-8.4.0_musl.Linux-x86_64
+          path: ${{ env.SDK_NAME }}
           key: ${{ runner.os }}-${{ matrix.target }}-openwrt
           restore-keys: |
             ${{ runner.os }}-${{ matrix.target }}-openwrt
@@ -39,32 +58,32 @@ jobs:
       - name: Setup OpenWRT SDK
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
-          wget https://archive.openwrt.org/releases/21.02.1/targets/${{env.TARGET_PATH}}/openwrt-sdk-21.02.1-${{ matrix.target }}_gcc-8.4.0_musl.Linux-x86_64.tar.xz
-          tar -xvJf openwrt-sdk-21.02.1-${{ matrix.target }}_gcc-8.4.0_musl.Linux-x86_64.tar.xz
-          cd openwrt-sdk-21.02.1-${{ matrix.target }}_gcc-8.4.0_musl.Linux-x86_64
+          wget https://archive.openwrt.org/releases/${{ env.SDK_VERSION }}/targets/${{ env.TARGET_PATH }}/${{ env.SDK_NAME }}.tar.xz
+          tar -xvJf ${{ env.SDK_NAME }}.tar.xz
+          cd ${{ env.SDK_NAME }}
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
       - name: Checkout Build Files
         uses: actions/checkout@v2
         with:
-          path: openwrt-sdk-21.02.1-${{ matrix.target }}_gcc-8.4.0_musl.Linux-x86_64/package/bitsrunlogin-go
+          path: ${{ env.SDK_NAME }}/package/bitsrunlogin-go
           ref: openwrt-build
 
       - name: Checkout Source Code
         uses: actions/checkout@v2
         with:
-          path: openwrt-sdk-21.02.1-${{ matrix.target }}_gcc-8.4.0_musl.Linux-x86_64/package/bitsrunlogin-go/src
+          path: ${{ env.SDK_NAME }}/package/bitsrunlogin-go/src
           ref: main
 
       - name: Checkout LuCI Code
         uses: actions/checkout@v2
         with:
-          path: openwrt-sdk-21.02.1-${{ matrix.target }}_gcc-8.4.0_musl.Linux-x86_64/package/luci-app-bitsrunlogin-go
+          path: ${{ env.SDK_NAME }}/package/luci-app-bitsrunlogin-go
           ref: luci
 
       - name: Compile Package
-        working-directory: ./openwrt-sdk-21.02.1-${{ matrix.target }}_gcc-8.4.0_musl.Linux-x86_64
+        working-directory: ${{ env.SDK_NAME }}
         run: |
           make defconfig
           make package/luci-app-bitsrunlogin-go/compile -j2 V=s
@@ -73,7 +92,7 @@ jobs:
         uses: actions/upload-artifact@v3.1.0
         with: 
           name: ${{ matrix.target }}-packages
-          path: openwrt-sdk-21.02.1-${{ matrix.target }}_gcc-8.4.0_musl.Linux-x86_64/bin/packages/${{ env.TARGET_NAME }}/base/*
+          path: ${{ env.SDK_NAME }}/bin/packages/${{ env.TARGET_NAME }}/base/*
 
 #       - name: Release Package
 #         uses: "marvinpinto/action-automatic-releases@latest"
