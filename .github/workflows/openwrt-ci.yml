@@ -92,7 +92,7 @@ jobs:
         uses: actions/upload-artifact@v3.1.0
         with: 
           name: ${{ matrix.target }}-packages
-          path: ${{ env.SDK_NAME }}/bin/packages/${{ env.TARGET_NAME }}/base/*
+          path: ${{ env.SDK_NAME }}/bin/packages/*/base/*bitsrunlogin*.ipk
 
 #       - name: Release Package
 #         uses: "marvinpinto/action-automatic-releases@latest"
