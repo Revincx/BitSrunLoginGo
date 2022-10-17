@@ -5,7 +5,6 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-bitsrunlogin-go
-PKG_VERSION:=1.0
 
 LUCI_TITLE:=LuCI app for BitSrunLoginGo (Bit Srun auto login tool)
 LUCI_PKGARCH:=all
