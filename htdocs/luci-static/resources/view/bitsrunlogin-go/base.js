@@ -79,7 +79,6 @@ return view.extend({
 
 		o = s.option(form.Value, 'usertype', _('ISP type'),
 			_('See <a href="https://github.com/Mmx233/BitSrunLoginGo" target="_blank">Mmx233/BitSrunLoginGo</a> for details.'));
-		o.value('', _('Empty'));
 		o.value('cmcc', _('China Mobile (cmcc)'));
 		o.value('ctcc', _('China Telecom (ctcc)'));
 		o.value('cucc', _('China Unicom (cucc)'));
@@ -92,9 +91,9 @@ return view.extend({
 		o.rmempty = false;
 
 		o = s.option(form.Value, 'acid', 'AC_ID',
-			_('Do not modify it if you don\'t know what it is'));
+			_('Please refer to you school to modify this value, incorrect ac_id may cause login error.'));
 		o.datatype = 'uinteger';
-		o.default = '1';
+		o.default = '5';
 		o.rmempty = false;
 
 		o = s.option(form.Flag, 'enable_https', _('Enable HTTPS'),
@@ -123,11 +122,6 @@ return view.extend({
 
 		o = s.option(form.Flag, 'debug', _('Debug mode'),
 			_('More granular information will be given in log.'));
-		o.default = o.disabled;
-		o.rmempty = false;
-
-		o = s.option(form.Flag, 'slient_mode', _('Slient mode'),
-		_('Print less messages in log file.'));
 		o.default = o.disabled;
 		o.rmempty = false;
 

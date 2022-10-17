@@ -1,148 +1,148 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:34
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:36
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:52
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:53
+msgid "Bit Srun auto login tool."
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:34
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:36
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:52
 #: applications/luci-app-bitsrunlogin-go/root/usr/share/luci/menu.d/luci-app-bitsrunlogin-go.json:3
 msgid "BitSrunLogin-Go"
 msgstr ""
 
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:34
-msgid "RUNNING"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:36
-msgid "NOT RUNNING"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:53
-msgid "Bit Srun auto login tool."
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:66
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/log.js:37
-msgid "Collecting data..."
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:72
-msgid "Enable"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:76
-msgid "Login address"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:80
-msgid "ISP type"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:81
-msgid ""
-"See <a href=\"https://github.com/Mmx233/BitSrunLoginGo\" "
-"target=\"_blank\">Mmx233/BitSrunLoginGo</a> for details."
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:82
-msgid "Empty"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:83
-msgid "China Mobile (cmcc)"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:84
-msgid "China Telecom (ctcc)"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:85
-msgid "China Unicom (cucc)"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:88
-msgid "Username"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:91
-msgid "Password"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:96
-msgid "Do not modify it if you don't know what it is"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:101
-msgid "Enable HTTPS"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:102
-msgid "Use HTTPS to login."
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:106
-msgid "Skip certificate check"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:110
-msgid "Timeout"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:111
-msgid "Maximum time allowed for connection."
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:116
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:114
 msgid "Check interval"
 msgstr ""
 
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:117
-msgid "Network connectivity check interval."
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:82
+msgid "China Mobile (cmcc)"
 msgstr ""
 
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:122
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:83
+msgid "China Telecom (ctcc)"
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:84
+msgid "China Unicom (cucc)"
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:66
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/log.js:37
+msgid "Collecting data..."
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:123
+msgid "Debug mode"
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:72
+msgid "Enable"
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:99
+msgid "Enable HTTPS"
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/root/usr/share/rpcd/acl.d/luci-app-bitsrunlogin-go.json:3
+msgid "Grant access to BitSrunLogin-Go configuration"
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:80
+msgid "ISP type"
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:120
 msgid "Interface name"
 msgstr ""
 
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:123
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:121
 msgid ""
 "Interface name in regex, e.g. \"eth0\\.[2-3]\".<br/>Multi-interfaces mode "
 "will be enabled if not empty."
 msgstr ""
 
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:125
-msgid "Debug mode"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:126
-msgid "More granular information will be given in log."
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:130
-msgid "Slient mode"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:131
-msgid "Print less messages in log file."
-msgstr ""
-
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/log.js:35
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/log.js:35
 msgid "Loading..."
 msgstr ""
 
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/log.js:44
-msgid "Log is clean."
+#: applications/luci-app-bitsrunlogin-go/root/usr/share/luci/menu.d/luci-app-bitsrunlogin-go.json:22
+msgid "Log"
 msgstr ""
 
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/log.js:53
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/log.js:53
 msgid "Log file does not exist."
 msgstr ""
 
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/log.js:57
-#, javascript-format
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/log.js:44
+msgid "Log is clean."
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:76
+msgid "Login address"
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:109
+msgid "Maximum time allowed for connection."
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:124
+msgid "More granular information will be given in log."
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:36
+msgid "NOT RUNNING"
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:115
+msgid "Network connectivity check interval."
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:89
+msgid "Password"
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:94
+msgid ""
+"Please refer to you school to modify this value, incorrect ac_id may cause "
+"login error."
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:34
+msgid "RUNNING"
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/log.js:70
+msgid "Refresh every %s seconds."
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:81
+msgid ""
+"See <a href=\"https://github.com/Mmx233/BitSrunLoginGo\" "
+"target=\"_blank\">Mmx233/BitSrunLoginGo</a> for details."
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/root/usr/share/luci/menu.d/luci-app-bitsrunlogin-go.json:14
+msgid "Settings"
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:104
+msgid "Skip certificate check"
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:108
+msgid "Timeout"
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/log.js:57
 msgid "Unknown error: %s"
 msgstr ""
 
-#: htdocs/luci-static/resources/view/bitsrunlogin-go/log.js:70
-#, javascript-format
-msgid "Refresh every %s seconds."
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:100
+msgid "Use HTTPS to login."
+msgstr ""
+
+#: applications/luci-app-bitsrunlogin-go/htdocs/luci-static/resources/view/bitsrunlogin-go/base.js:86
+msgid "Username"
 msgstr ""
